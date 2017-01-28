@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "sass-mediaqueries": "^1.6.1"
+  },
   "devDependencies": {
     "gulp": "gulpjs/gulp.git#4.0",
     "gulp-autoprefixer": "^3.1.1",
