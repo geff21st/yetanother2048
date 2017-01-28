@@ -89,3 +89,24 @@ $cells: 4;
 
   }
 }
+
+
+.btns-wrap {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  margin-top: -25px;
+
+  .btn {
+    height: 50px;
+    width: 150px;
+    display: inline-block;
+    background-color: #ccc;
+    border: 1px solid #999;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}

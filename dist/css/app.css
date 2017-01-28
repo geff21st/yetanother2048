@@ -76,4 +76,19 @@ html, body {
     .cell-wrap .cell[data-counter="4096"] {
       background-color: #286577; }
 
+.btns-wrap {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  margin-top: -25px; }
+  .btns-wrap .btn {
+    height: 50px;
+    width: 150px;
+    display: inline-block;
+    background-color: #ccc;
+    border: 1px solid #999;
+    border-radius: 4px; }
+    .btns-wrap .btn:hover {
+      background-color: #eee; }
+
 /*# sourceMappingURL=app.css.map */
