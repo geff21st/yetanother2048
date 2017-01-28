@@ -1,0 +1,20 @@
+{
+  "name": "main",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Alexandr Kuznecov <kuznecov@uplab.ru>"
+  ],
+  "license": "BSD",
+  "homepage": "https://github.com/geff21st/yetanother2048",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
