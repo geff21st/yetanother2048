@@ -5,7 +5,8 @@ html, body {
   background-color: #eee;
   padding: 0;
   margin: 0;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  min-width: 450px; }
 
 .box {
   width: 412px;
