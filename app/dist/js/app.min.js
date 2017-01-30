@@ -111,6 +111,9 @@ Field.prototype.addInRandCell = function(value) {
 
     Helper.__log(i, j);
 
+    // this.value(3, 3, 2);
+    // return;
+
     if (this.value(i, j)) {
         return this.addInRandCell();
     } else {
@@ -195,8 +198,8 @@ Field.prototype.moveLeft = function() {
             this.value(i, j, val);
         }
     }
-    this.setValues();
     this.addInRandCell();
+    this.setValues();
 };
 
 
@@ -209,8 +212,8 @@ Field.prototype.moveUp = function() {
             this.value(i, j, val);
         }
     }
-    this.setValues();
     this.addInRandCell();
+    this.setValues();
 };
 
 
