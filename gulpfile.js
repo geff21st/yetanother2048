@@ -5,6 +5,7 @@ var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync').create();
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 const autoprefixer = require('gulp-autoprefixer');
@@ -28,7 +29,7 @@ gulp.task('sass-full', () => {
         }))
         // .pipe(gcmq())
 
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('app/dist/css'))
 
         .pipe(sourcemaps.write('.', {
             // sourceMappingURLPrefix: '../scss',
@@ -36,7 +37,7 @@ gulp.task('sass-full', () => {
             sourceRoot: '../../scss'
         }))
 
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('app/dist/css'))
         ;
 });
 
@@ -66,7 +67,11 @@ gulp.task('sass-min', () => {
             sourceRoot: '../../scss'
         }))
 
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('app/dist/css'))
+
+        // .pipe(browserSync.reload({stream:true}))
+
+        .pipe(browserSync.stream({match: '**/*.css'}))
         ;
 });
 
@@ -74,24 +79,32 @@ gulp.task('sass', gulp.parallel('sass-full', 'sass-min'));
 
 gulp.task('scripts', function() {
     return gulp.src(js_mask)
-        // .pipe(concat('all.min.js'))
+    // .pipe(concat('all.min.js'))
         .pipe(sourcemaps.init())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(sourcemaps.write('.', {
             // sourceMappingURLPrefix: js_src,
-            includeContent: false,
-            sourceRoot: js_src
+            // includeContent: false,
+            // sourceRoot: js_src
         }))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('app/dist/js'))
+
+        .pipe(browserSync.reload({stream:true}))
+        ;
 });
 
-gulp.task('watch', function() {
+gulp.task('server', function() {
+    browserSync.init({
+        server: "./app"
+    });
     watch(js_mask, gulp.series('scripts'));
     watch(scss_mask, gulp.series('sass'));
+    watch("app/*.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', gulp.parallel('sass', 'scripts', 'watch'));
+gulp.task('default', gulp.series('server'));
+// gulp.task('default', gulp.parallel('sass', 'scripts', 'watch'));
 // gulp.task('default', gulp.parallel('sass', 'watch'));

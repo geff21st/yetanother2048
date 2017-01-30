@@ -1,6 +1,6 @@
 {
   "name": "main",
-  "description": "",
+  "description": "app/",
   "main": "gulpfile.js",
   "authors": [
     "Alexandr Kuznecov <kuznecov@uplab.ru>"
